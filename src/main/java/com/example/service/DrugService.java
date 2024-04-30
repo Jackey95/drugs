@@ -10,7 +10,7 @@ public interface DrugService  {
 
     public Drugs findDrugById(int id);
 
-    public void addDrug(Drugs drug);
+    public Drugs addDrug(Drugs drug);
 
     public void updateDrug(Drugs drug);
 

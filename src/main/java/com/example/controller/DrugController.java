@@ -44,10 +44,16 @@ public class DrugController {
         }
     }
 
+//    @PostMapping
+//    public ResponseEntity<?> createDrug(@RequestBody Drugs drug) {
+//        drugService.addDrug(drug); // 调用Service层的save方法保存新的药品
+//        return ResponseEntity.ok().build(); // 返回成功响应,可以省略
+//    }
+
     @PostMapping
-    public ResponseEntity<?> createDrug(@RequestBody Drugs drug) {
-        drugService.addDrug(drug); // 调用Service层的save方法保存新的药品
-        return ResponseEntity.ok().build(); // 返回成功响应,可以省略
+    public ResponseEntity<Drugs> addDrug(@RequestBody Drugs drugs){
+        Drugs createdDrugs = drugService.addDrug(drugs);
+        return ResponseEntity.ok(createdDrugs); // 返回创建的药品数据
     }
 
     @PutMapping("/{id}")

@@ -1,7 +1,6 @@
 package com.example.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.entity.Drugs;
@@ -24,7 +23,9 @@ public class DrugServiceImpI implements DrugService {
     public Drugs findDrugById(int id){ return drugMapper.selectById(id);}
 
     @Override
-    public void addDrug(Drugs drug){ drugMapper.insert(drug);}
+    public Drugs addDrug(Drugs drug){ drugMapper.insert(drug);
+        return drug;
+    }
 
     @Override
     public void updateDrug(Drugs drug){ drugMapper.updateById(drug);}
